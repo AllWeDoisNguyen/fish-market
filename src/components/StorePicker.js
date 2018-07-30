@@ -2,7 +2,8 @@ import React from 'react';
 import {getFunName} from '../helpers';
 
 class StorePicker extends React.Component {
-    goToStore() {
+    goToStore(event) {
+        event.preventDefault();
         console.log('Url has been changed');
         // Es6 doesn't need a comma after this
         // First grab text from input box
