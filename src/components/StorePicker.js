@@ -20,7 +20,7 @@ class StorePicker extends React.Component {
 
     render() {
         return (
-            <form className="store-selector" onSubmit={this.goToStore.bind(this)}>
+            <form className="store-selector" onSubmit={(e) => this.goToStore(e)}>
             {/* Dont put comments at top level!*/}
             {/* render is tied to the class and so "this" referrs to StorePicker class*/}
                 <h2>Please Enter A Store</h2>
