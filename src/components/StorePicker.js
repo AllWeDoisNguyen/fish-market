@@ -13,7 +13,7 @@ class StorePicker extends React.Component {
         console.log('Url has been changed');
         // Es6 doesn't need a comma after this
         // First grab text from input box
-        console.log(this);
+        console.log(this.storeInput.value);
         // second, transition from / to /store/:storeId
 
     }
