@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
+import sampleFishes from '../sample-fishes';
 
 class App extends React.Component {
 
@@ -9,6 +10,7 @@ class App extends React.Component {
         super();// needed to use `this`
 
         this.addFish = this.addFish.bind(this);
+        this.loadSamples = this.loadSamples.bind(this);
         // getinitialState
         this.state = {
             fishes: {},
@@ -16,17 +18,23 @@ class App extends React.Component {
         };
     }
 
-addFish(fish) {
-    // update state
-    const fishes = {...this.state.fishes};
-    // add in our new fish
-    const timestamp = Date.now();
-    fishes[`fish-${timestamp}`] = fish;
-    // this.state.fishes.fish1 = fish;
-    // set state
-    // this.setState({fishes: fishes})
-    this.setState({fishes});
-}
+    addFish(fish) {
+        // update state
+        const fishes = {...this.state.fishes};
+        // add in our new fish
+        const timestamp = Date.now();
+        fishes[`fish-${timestamp}`] = fish;
+        // this.state.fishes.fish1 = fish;
+        // set state
+        // this.setState({fishes: fishes})
+        this.setState({fishes});
+    }
+
+    loadSamples() {
+        this.setState({
+            fishes: sampleFishes
+        });
+    }
 
     render() {
         return (
@@ -35,7 +43,7 @@ addFish(fish) {
                     <Header tagline="Fresh Seafood Market" />
                 </div>
                 <Order />
-                <Inventory addFish={this.addFish} />
+                <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
             </div>
 
         )
