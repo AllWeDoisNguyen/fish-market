@@ -40,7 +40,7 @@ class App extends React.Component {
 
     addToOrder(key) {
         // take a copy of our state
-        const order = {... this.state.order}; // object spread
+        const order = {...this.state.order}; // object spread
         // update or add the new number of fish ordered
         order[key] = order[key] + 1 || 1;
         // update our state
@@ -59,7 +59,10 @@ class App extends React.Component {
                         }
                     </ul>
                 </div>
-                <Order />
+                <Order
+                    fishes={this.state.fishes}
+                    order={this.state.order}
+                />
                 <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
             </div>
 
