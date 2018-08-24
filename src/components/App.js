@@ -21,6 +21,13 @@ class App extends React.Component {
         };
     }
 
+    componentWillMount() {
+        this.ref = base.syncState(`${this.props.params.storeId}/fishes`, {
+            context: this,
+            state: 'fishes'
+        });
+    }
+
     addFish(fish) {
         // update state
         const fishes = {...this.state.fishes};
