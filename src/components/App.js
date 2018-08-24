@@ -28,6 +28,10 @@ class App extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        base.removeBinding(this.ref);
+    }
+
     addFish(fish) {
         // update state
         const fishes = {...this.state.fishes};
