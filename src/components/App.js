@@ -32,6 +32,13 @@ class App extends React.Component {
         base.removeBinding(this.ref);
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        console.log('Something Changed');
+        console.log('no curly brackets nextProps', nextProps);
+        console.log('no curly brackets next state', nextState);
+        console.log('curly brackets', {nextProps, nextState});
+    }
+
     addFish(fish) {
         // update state
         const fishes = {...this.state.fishes};
