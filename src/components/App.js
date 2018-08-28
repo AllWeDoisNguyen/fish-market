@@ -108,7 +108,8 @@ class App extends React.Component {
                     params={this.props.params}
                 />
                 <Inventory 
-                    addFish={this.addFish} 
+                    addFish={this.addFish}
+                    removeFish={this.removeFish}
                     loadSamples={this.loadSamples} 
                     fishes={this.state.fishes} 
                     updateFish={this.updateFish}/>
