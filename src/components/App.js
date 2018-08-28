@@ -60,6 +60,11 @@ class App extends React.Component {
         // this.setState({fishes: fishes})
         this.setState({fishes});
     }
+    updateFish(key, fish) {
+        const fishes = {...this.state.fishes};
+        fishes[key] = updatedFish;
+        this.setState({fishes});
+    }
 
     loadSamples() {
         this.setState({
