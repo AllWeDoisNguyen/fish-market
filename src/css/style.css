@@ -9,6 +9,15 @@
   padding: 2rem 0 !important;
   transform: translateX(0);
 }
+.order-leave {
+  transition: all 0.5s;
+  transform: translateX(0);
+}
+.order-leave.order-leave-active {
+  transform: translateX(120%);
+  max-height: 0;
+  padding: 0;
+}
 @font-face {
   font-family: "haymakerregular";
   src: url("./fonts/haymaker-webfont.eot");
