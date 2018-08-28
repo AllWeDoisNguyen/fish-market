@@ -16,6 +16,7 @@ class App extends React.Component {
         this.removeFish = this.removeFish.bind(this);
         this.loadSamples = this.loadSamples.bind(this);
         this.addToOrder = this.addToOrder.bind(this);
+        this.removeFromOrder = this.removeFromOrder.bind(this);
 
         // getinitialState
         this.state = {
@@ -88,7 +89,14 @@ class App extends React.Component {
         order[key] = order[key] + 1 || 1;
         // update our state
         this.setState({ order });
-    
+    }
+
+    removeFromOrder(key) {
+        const order = { ...this.state.order };
+        // order[key] = null;
+        // it's not dependent on Firebase here so we can use `delete`
+        delete order[key];
+        this.setState({ order });
     }
 
     render() {
@@ -98,7 +106,7 @@ class App extends React.Component {
                     <Header tagline="Fresh Seafood Market" />
                     <ul className="list-of-fishes">
                         {
-                            Object.keys(this.state.fishes).map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}  />)
+                            Object.keys(this.state.fishes).map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} removeFromOrder={this.removeFromOrder} />)
                         }
                     </ul>
                 </div>
@@ -106,6 +114,7 @@ class App extends React.Component {
                     fishes={this.state.fishes}
                     order={this.state.order}
                     params={this.props.params}
+                    removeFromOrder={this.removeFromOrder}
                 />
                 <Inventory 
                     addFish={this.addFish}
